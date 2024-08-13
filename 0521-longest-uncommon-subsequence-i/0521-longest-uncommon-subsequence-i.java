@@ -6,6 +6,5 @@ class Solution {
         return a.length();
         else
         return b.length();
-        
     }
 }
