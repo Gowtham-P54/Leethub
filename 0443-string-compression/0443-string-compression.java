@@ -39,6 +39,8 @@ class Solution {
         
         }
           ans.add(chars[i]);
+          if(count!=1)
+                {
                    if(count<=9)
                     {
                         ans.add((char)(count+'0'));
@@ -52,7 +54,7 @@ class Solution {
                             ans.add(str.charAt(k));
                         }
                     }
-
+                }
         for(int k=0;k<ans.size();k++)
         {
              chars[k]=ans.get(k);
