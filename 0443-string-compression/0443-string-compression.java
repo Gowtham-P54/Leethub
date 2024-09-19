@@ -1,13 +1,14 @@
 class Solution {
     public int compress(char[] chars) {
-        List<Character>ans=new ArrayList<>();
-        int count =1;
-        int i=0;
+        //String s="";
         if(chars.length==1)
         {
             return 1;
         }
-        for( i=0;i<chars.length-1;i++)
+        int count=1;
+        ArrayList<Character> list=new ArrayList<>();
+        int i=0;
+        for(i=0;i<chars.length-1;i++)
         {
             if(chars[i]==chars[i+1])
             {
@@ -15,51 +16,46 @@ class Solution {
             }
             else
             {
-                ans.add(chars[i]);
+                list.add(chars[i]);
                 if(count!=1)
                 {
-                    if(count<=9)
-                    {
-                        ans.add((char)(count+'0'));
 
-                    }
-                    else
-                    {
-                        String str=count+"";
-                        for(int j=0;j<str.length();j++)
-                        {
-                            ans.add(str.charAt(j));
-                        }
-                    }
                 
+                if(count<=9)
+                list.add((char)(count+'0'));
+                else
+                {
+                    String s=count+"";
+                    for(int k=0;k<s.length();k++)
+                    {
+                        list.add(s.charAt(k));
+                    }
+                }
                 }
                 count=1;
             }
-            
-        
-        }
-          ans.add(chars[i]);
-          if(count!=1)
-                {
-                   if(count<=9)
-                    {
-                        ans.add((char)(count+'0'));
 
-                    }
-                    else
+
+        }
+        list.add(chars[i]);
+        if(count!=1)
+        {
+        if(count<=9)
+                list.add((char)(count+'0'));
+                else
+                {
+                    String s=count+"";
+                    for(int k=0;k<s.length();k++)
                     {
-                        String str=count+"";
-                        for(int k=0;k<str.length();k++)
-                        {
-                            ans.add(str.charAt(k));
-                        }
+                        list.add(s.charAt(k));
                     }
                 }
-        for(int k=0;k<ans.size();k++)
-        {
-             chars[k]=ans.get(k);
         }
-        return ans.size();
-        
+
+        for(int j=0;j<list.size();j++)
+        {
+            chars[j]=list.get(j);
+        }
+        return list.size();
     }
 }
